@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="pt-br">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1 class="titulo"></h1>
+        </div>
+    </header>
+    <main>
+        <section class="container">
+          <h2 class="titulo-secundario"></h2>
+          <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Peso (kg)</th>
+                    <th>Altura (m)</th>
+                    <th>Gordura corporal (%)</th>
+                    <th>IMC</th>
+
+                    
+                </tr>
+          </thead>
+          <tbody id="tabela pacientes">
+            <tr class="paciente" id="primeiro-paciente">
+                <td id="nome1" class="info-nome">Paulo</td>
+                <td id="peso1" class="info-peso">100</td>
+                <td id="altura1" class="info-altura">2.00</td>
+                <td class="info-gordura">10</td>
+                <td class="info-imc">0</td>
+           </tr>
+           <tr class="paciente" id="segundo-paciente">
+            <td class="info-nome">Marcia</td>
+            <td class="info-peso">65</td>
+            <td class="info-altura">1.60</td>
+            <td class="info-gordura">8</td>
+            <td class="info-imc">0</td>
+       </tr>
+       <tr class="paciente" id="terceiro-paciente">
+        <td class="info-nome">Henrique</td>
+        <td class="info-peso">80</td>
+        <td class="info-altura">1.82</td>
+        <td class="info-gordura">15</td>
+        <td class="info-imc">0</td>
+   </tr>
+   <tr class="paciente" id="quarto-paciente">
+    <td class="info-nome">Gabriel</td>
+    <td class="info-peso">55</td>
+    <td class="info-altura">2.00</td>
+    <td class="info-gordura">13</td>
+    <td class="info-imc">0</td>
+</tr>
+   <tr class="paciente" id="quinto-paciente">
+    <td class="info-nome">Ana</td>
+    <td class="info-peso">60</td>
+    <td class="info-altura">1.55</td>
+    <td class="info-gordura">9</td>
+    <td class="info-imc">0</td>
+</tr>
+<tr class="paciente" id="sexto-paciente">
+    <td class="info-nome">Matheus</td>
+    <t<tr class="paciente" id="sexto-paciente">
+        <td class="info-nome">Matheus</td>
+        <td class="info-peso">95</td>
+        <td class="info-altura">1.80</td>
+        <td class="info-gordura">7</td>
+        <td class="info-imc">0</td>
+    </tr>
+              </tbody>
+              </table>
+    
+            </section>
+        </main>
+        <button onclick="calcularTodosOsIMCs()">Calcular IMC de Todos</button>
+    
+    <script>
+    function calcularTodosOsIMCs() {
+      
+        let pacientes = document.querySelectorAll(".paciente");
+    
+        
+        for (let i = 0; i < pacientes.length; i++) {
+            let paciente = pacientes[i];
+    
+            let peso = parseFloat(paciente.querySelector(".info-peso").textContent);
+            let altura = parseFloat(paciente.querySelector(".info-altura").textContent);
+          
+            if (peso > 0 && altura > 0) {
+              
+                let imc = peso / (altura * altura);
+    
+         
+                paciente.querySelector(".info-imc").textContent = imc.toFixed(2);
+            } else {
+                paciente.querySelector(".info-imc").textContent = "Dados inválidos";
+            }
+        }
+    }
+    </script>
+    </body>
