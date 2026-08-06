@@ -1,0 +1,29 @@
+let numeroSorteado = Math.floor(Math.random() * 50) + 1;
+    console.log("Numero sorteado "+numeroSorteado);
+
+    let tentativasRestantes = 10;
+
+
+function adivinharNumero(){
+    event.preventDefault();
+  
+    let chute = Number(document.getElementById("chute").value);
+    let mensagem = (document.getElementById("mensagem").value);
+
+
+     tentativasRestantes--;
+
+     if()
+   
+
+    if( chute === numeroSorteado){
+        document.getElementById('mensagem').innerText = "Parabems voce acertou ";
+
+    }else if( chute < numeroSorteado ){
+        document.getElementById('mensagem').innerText = "Voce errou, chute mais alto (tentativas restantes = "+ tentativasRestantes+ ")";
+    }else{
+        document.getElementById('mensagem').innerText = "Voce errou, chute mais baixo (tentativas restantes = "+ tentativasRestantes+ ")";
+    }
+
+
+}
