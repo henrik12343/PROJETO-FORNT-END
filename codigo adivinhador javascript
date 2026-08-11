@@ -6,6 +6,10 @@ let numeroSorteado = Math.floor(Math.random() * 50) + 1;
 
 function adivinharNumero(){
     event.preventDefault();
+
+    if (jogoAcabou) {
+        return; 
+    }
   
     let chute = Number(document.getElementById("chute").value);
     let mensagem = (document.getElementById("mensagem").value);
@@ -13,17 +17,23 @@ function adivinharNumero(){
 
      tentativasRestantes--;
 
-     if()
-   
+     if(tentativasRestantes <= 0){
+        document.getElementById('mensagem').innerText = "Suas tentativas acabaram!O numero era: "+numeroSorteado+" Atualize a página para reiniciar.";
+        return; 
+    }
 
-    if( chute === numeroSorteado){
+if( chute === numeroSorteado){
         document.getElementById('mensagem').innerText = "Parabems voce acertou ";
-
+        
+    
     }else if( chute < numeroSorteado ){
         document.getElementById('mensagem').innerText = "Voce errou, chute mais alto (tentativas restantes = "+ tentativasRestantes+ ")";
+        
     }else{
         document.getElementById('mensagem').innerText = "Voce errou, chute mais baixo (tentativas restantes = "+ tentativasRestantes+ ")";
     }
-
-
+    if(tentativasRestantes === 0 && chute !== numeroSorteado){
+        document.getElementById('mensagem').innerText = "Suas tentativas acabaram! O número era " + numeroSorteado;
+        jogoAcabou = true;
+    }
 }
