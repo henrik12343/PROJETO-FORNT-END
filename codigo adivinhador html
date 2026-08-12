@@ -14,7 +14,7 @@
 
        <input type="number" id="chute" placeholder="Digite um valor">
    
-     <button onclick="adivinharNumero(event)">Adivinhar</button>
+     <button id="meuBotao" onclick="adivinharNumero(event)">Adivinhar</button>
      <p id="mensagem"></p>
      
 
