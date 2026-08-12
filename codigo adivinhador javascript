@@ -17,11 +17,13 @@ function adivinharNumero(){
 
      if(tentativasRestantes <= 0){
         document.getElementById('mensagem').innerText = "Suas tentativas acabaram!O numero era: "+numeroSorteado+" Atualize a página para reiniciar.";
-        return; 
+        encerrarJogo();
+        
     }
 
 if( chute === numeroSorteado){
         document.getElementById('mensagem').innerText = "Parabems voce acertou ";
+        encerrarJogo();
         
     
     }else if( chute < numeroSorteado ){
@@ -33,5 +35,11 @@ if( chute === numeroSorteado){
     if(tentativasRestantes === 0 && chute !== numeroSorteado){
         document.getElementById('mensagem').innerText = "Suas tentativas acabaram! O número era " + numeroSorteado;
        
+    }
+    function encerrarJogo() {
+        document.getElementById("chute").disabled = true; 
+        
+        
+        document.getElementById("meuBotao").disabled = true; 
     }
 }
