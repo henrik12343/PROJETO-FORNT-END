@@ -4,18 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     
-   <form action="">
+   <form action="" class="container">
 
-    <h1>ADIVINHADOR DE <br>
-          NUMEROS</h1>
+    <h1 id="titulo">ADIVINHADOR DE <br>
+          NUMEROS (1 a 100)</h1>
 
        <input type="number" id="chute" placeholder="Digite um valor">
    
-     <button id="meuBotao" onclick="adivinharNumero(event)">Adivinhar</button>
-     <p id="mensagem"></p>
+     <button id="meuBotao" class="botao-estilo" onclick="adivinharNumero(event)">Adivinhar</button>
+     <button id="meuBotao2" class="botao-estilo" onclick="recomecar()">Recomecar</button>
+     <p id="mensagem" class="texto"></p>
      
 
    </form>
