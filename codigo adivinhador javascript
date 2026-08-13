@@ -1,9 +1,17 @@
-let numeroSorteado = Math.floor(Math.random() * 50) + 1;
+let numeroSorteado = Math.floor(Math.random() * 100) + 1;
     console.log("Numero sorteado "+numeroSorteado);
     let botao = document.getElementById("meuBotao");
+    let botao2 = (document.getElementById("meuBotao2").value);
 
     let tentativasRestantes = 10;
 
+    function recomecar() {
+     
+        document.getElementById("mensagem") = 'A pagina vai recarregar agora...';
+        
+
+        location.reload();
+      }
    
 
 
@@ -11,29 +19,30 @@ function adivinharNumero(){
     event.preventDefault();
 
 
-    let temChute = !!chute; 
+    
 
-if (temChute === false) {
-    document.getElementById("mensagem") = "Você tem que digitar algo!";
-}
+
   
     let chute = Number(document.getElementById("chute").value);
     let mensagem = (document.getElementById("mensagem").value);
-    
+    let botao = (document.getElementById("meuBotao2").value);
 
 
      tentativasRestantes--;
+
+  
     
 
      if(tentativasRestantes <= 0){
-        document.getElementById('mensagem').innerText = "Suas tentativas acabaram!O numero era: "+numeroSorteado+" Atualize a página para reiniciar.";
-        encerrarJogo();
+        document.getElementById('mensagem').innerText = "Suas tentativas acabaram!O numero era: "+numeroSorteado+" Aperte o botao recomecar na página para reiniciar.";
+        botao.disabled = true;
+       
         
     }
 
 if( chute === numeroSorteado){
         document.getElementById('mensagem').innerText = "Parabems voce acertou ";
-        encerrarJogo();
+        botao.disabled = true;
         
     
     }else if( chute < numeroSorteado ){
@@ -42,14 +51,12 @@ if( chute === numeroSorteado){
     }else{
         document.getElementById('mensagem').innerText = "Voce errou, chute mais baixo (tentativas restantes = "+ tentativasRestantes+ ")";
     }
-    if(tentativasRestantes === 0 && chute !== numeroSorteado){
+    if(tentativasRestantes <= 0 && chute !== numeroSorteado){
         document.getElementById('mensagem').innerText = "Suas tentativas acabaram! O número era " + numeroSorteado;
+
+        botao.disabled = true;
+        
        
     }
-    function encerrarJogo() {
-        document.getElementById("chute").disabled = true; 
-        
-        
-        document.getElementById("meuBotao").disabled = true; 
-    }
 }
+
